@@ -1,7 +1,7 @@
 export class EmployeeModel{
      id:number=0;
      firstName:string='';
-     lasttName:string='';
+     lastName:string='';
      mobile:string='';
      email:string='';
      salary:string='';

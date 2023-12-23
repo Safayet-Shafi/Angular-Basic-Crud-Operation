@@ -24,14 +24,14 @@ export class EmployeeDashboardApiService {
   }
 
   updateEmployee(data:any,id:number){
-    return this.http.put<any>("http://localhost:3000/posts"+id,data)
+    return this.http.put<any>("http://localhost:3000/posts/"+id,data)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
 
-  deleteEmployee(id:number){
-    return this.http.delete<any>("http://localhost:3000/posts"+id)
+  deleteEmployee(id:any){
+    return this.http.delete<any>("http://localhost:3000/posts/"+id)
     .pipe(map((res:any)=>{
       return res;
     }))

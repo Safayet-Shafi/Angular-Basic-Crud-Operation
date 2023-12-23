@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <h1 class="fst-italic fw-bold text-light">Crud Operation</h1>
         <div class="d-flex">
-            <button class="btn btn-success" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employee</button>
+            <button (click)="addEmployee()" class="btn btn-success" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employee</button>
         </div>
 
     </div>
@@ -25,13 +25,13 @@
         <tr *ngFor="let row of employeeData">
             <td>{{row.id}}</td>
             <td>{{row.firstName}} </td>
-            <td>{{row.lastName}} Khan</td>
+            <td>{{row.lastName}} </td>
             <td>{{row.mobile}}</td>
             <td>{{row.email}}</td>
             <td>{{row.salary}}</td>
             <td>
-                <button class="btn btn-info">Edit</button>
-                <button class="btn btn-danger mx-3">Delete</button>
+                <button (click)="onEdit(row)" class="btn btn-info" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                <button (click)="deleteEmployee(row)" class="btn btn-danger mx-3">Delete</button>
             </td>
         </tr>
     </tbody>
@@ -51,28 +51,28 @@
         <div class="modal-body">
             <form [formGroup]="formValue">
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">First Name</label>
-                  <input type="text" class="form-control"formControlName="firstName" aria-describedby="emailHelp">
+                  <label  class="form-label">First Name</label>
+                  <input type="text" class="form-control"formControlName="firstName" >
                 </div>
 
                 <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                  <label  class="form-label">Last Name</label>
                   <input type="text" class="form-control" formControlName="lastName">
                 </div>
 
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Mobile</label>
-                    <input type="number" class="form-control" formControlName="mobile">
+                    <label  class="form-label">Mobile</label>
+                    <input type="text" class="form-control" formControlName="mobile">
                   </div>
 
                   <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Email</label>
-                    <input type="email" class="form-control" formControlName="email">
+                    <label  class="form-label">Email</label>
+                    <input type="text" class="form-control" formControlName="email">
                   </div>
 
                   <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Salary</label>
-                    <input type="number" class="form-control" formControlName="salary">
+                    <label  class="form-label">Salary</label>
+                    <input type="text" class="form-control" formControlName="salary">
                   </div>
                 
                 
@@ -80,7 +80,8 @@
         </div>
         <div class="modal-footer">
           <button id="close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button (click)="postEmployee()" type="button" class="btn btn-primary">Add</button>
+          <button *ngIf="showAdd" (click)="postEmployee()" type="button" class="btn btn-primary">Add</button>
+          <button *ngIf="showUpdate"  (click)="updateEmployee()" type="button" class="btn btn-primary">Update</button>
         </div>
       </div>
     </div>
