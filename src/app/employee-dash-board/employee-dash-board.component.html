@@ -22,13 +22,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>000428</td>
-            <td>Safayet </td>
-            <td>Ahmed Khan</td>
-            <td>01521408126</td>
-            <td>safayetshafi22@gmail.com</td>
-            <td>330000</td>
+        <tr *ngFor="let row of employeeData">
+            <td>{{row.id}}</td>
+            <td>{{row.firstName}} </td>
+            <td>{{row.lastName}} Khan</td>
+            <td>{{row.mobile}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.salary}}</td>
             <td>
                 <button class="btn btn-info">Edit</button>
                 <button class="btn btn-danger mx-3">Delete</button>
@@ -79,8 +79,8 @@
               </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Add</button>
+          <button id="close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button (click)="postEmployee()" type="button" class="btn btn-primary">Add</button>
         </div>
       </div>
     </div>

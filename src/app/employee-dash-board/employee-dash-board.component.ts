@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { EmployeeModel } from './model/employee-dashboard-model';
+import { EmployeeDashboardApiService } from '../api/employee-dashboard-api.service';
 
 @Component({
   selector: 'app-employee-dash-board',
@@ -7,12 +9,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./employee-dash-board.component.css']
 })
 export class EmployeeDashBoardComponent implements OnInit {
-  
+  employeeModelObj : EmployeeModel=new EmployeeModel();
   formValue!:FormGroup;
-  constructor(private formBuilder:FormBuilder) { }
+  employeeData:any;
+  constructor(private formBuilder:FormBuilder,
+              private employeeApiService:EmployeeDashboardApiService) { }
 
   ngOnInit(): void {
-
+    
+    this.getEmployee();
     this.formValue=this.formBuilder.group({
       firstName:[''],
       lastName:[''],
@@ -21,6 +26,35 @@ export class EmployeeDashBoardComponent implements OnInit {
       salary:[''],
     })
   }
-  
+
+  postEmployee(){
+    this.employeeModelObj.firstName=this.formValue.value.firstName;
+    this.employeeModelObj.lasttName=this.formValue.value.lastName;
+    this.employeeModelObj.mobile=this.formValue.value.mobile;
+    this.employeeModelObj.email=this.formValue.value.email;
+    this.employeeModelObj.salary=this.formValue.value.salary;
+
+    this.employeeApiService.postEmployee(this.employeeModelObj)
+    .subscribe(res=>{
+      console.log(res);
+      alert("Data Added")
+      this.formValue.reset();
+      let ref=document.getElementById("close")
+      ref?.click();
+      this.getEmployee();
+    },
+    err=>{
+      alert("Failed")
+    }
+    )
+  }
+
+
+  getEmployee(){
+    this.employeeApiService.getEmployee()
+    .subscribe(res=>{
+      this.employeeData=res;
+    })
+  }
 
 }

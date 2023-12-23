@@ -1,9 +1,21 @@
 {
   "posts": [
+    
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "firstName": "fgd",
+      "lasttName": "dg",
+      "mobile": 544656,
+      "email": "dgdgf",
+      "salary": 43563456
+    },
+    {
+      "id": 2,
+      "firstName": "ad",
+      "lasttName": "asda",
+      "mobile": 122,
+      "email": "asdf",
+      "salary": 222
     }
   ],
   "comments": [
