@@ -2,11 +2,21 @@
   "posts": [
     {
       "id": 1,
-      "firstName": "shafi",
-      "lastName": "Khan",
-      "mobile": 1521410258,
-      "email": "qqqqq",
-      "salary": 33000
+      "empId": "000428",
+      "firstName": "Safayet",
+      "lastName": "Ahmed Khan",
+      "mobile": "01521408126",
+      "email": "safayetshafi22@gmail.com",
+      "salary": "33000"
+    },
+    {
+      "id": 2,
+      "empId": "000377",
+      "firstName": "Sabbir ",
+      "lastName": "Ahmed ",
+      "mobile": "01758201482",
+      "email": "sabbir@erainfotechbd.com",
+      "salary": "35000"
     }
   ],
   "comments": [],

@@ -21,6 +21,7 @@ export class EmployeeDashBoardComponent implements OnInit {
     
     this.getEmployee();
     this.formValue=this.formBuilder.group({
+      empId:[''],
       firstName:[''],
       lastName:[''],
       mobile:[''],
@@ -36,6 +37,7 @@ export class EmployeeDashBoardComponent implements OnInit {
   }
 
   postEmployee(){
+    this.employeeModelObj.empId=this.formValue.value.empId;
     this.employeeModelObj.firstName=this.formValue.value.firstName;
     this.employeeModelObj.lastName=this.formValue.value.lastName;
     this.employeeModelObj.mobile=this.formValue.value.mobile;
@@ -44,7 +46,7 @@ export class EmployeeDashBoardComponent implements OnInit {
 
     this.employeeApiService.postEmployee(this.employeeModelObj)
     .subscribe(res=>{
-      console.log(res);
+      // console.log(res);
       alert("Data Added")
       this.formValue.reset();
       let ref=document.getElementById("close")
@@ -77,6 +79,7 @@ export class EmployeeDashBoardComponent implements OnInit {
     this.showAdd=false;
     this.showUpdate=true;
     this.employeeModelObj.id=row.id;
+    this.formValue.controls['empId'].setValue(row.empId);
     this.formValue.controls['firstName'].setValue(row.firstName);
     this.formValue.controls['lastName'].setValue(row.lastName);
     this.formValue.controls['mobile'].setValue(row.mobile);
@@ -85,6 +88,7 @@ export class EmployeeDashBoardComponent implements OnInit {
   }
 
   updateEmployee(){
+    this.employeeModelObj.empId=this.formValue.value.empId;
     this.employeeModelObj.firstName=this.formValue.value.firstName;
     this.employeeModelObj.lastName=this.formValue.value.lastName;
     this.employeeModelObj.mobile=this.formValue.value.mobile;
