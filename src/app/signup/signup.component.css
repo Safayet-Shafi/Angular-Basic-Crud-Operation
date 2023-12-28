@@ -1,0 +1,21 @@
+.card{
+    border: none;
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgb(39, 83, 141);
+    background: (linear-gradient(90deg,rgb(39, 83, 141)0%,rgb(15, 41, 75)100%));
+}
+.card h1,h6{
+    color: antiquewhite;
+}
+label{
+    color: antiquewhite;
+}
+.link{
+    color: antiquewhite;
+    margin-top: 10px;
+}
