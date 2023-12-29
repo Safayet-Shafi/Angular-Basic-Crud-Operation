@@ -7,31 +7,32 @@
                     <h6>Provide Your Information!</h6>
                 </div>
                 <form>
-                    <form>
+                    <form [formGroup]="signupValue" (ngSubmit)="postSignUp()">
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label  class="form-label">Full Name</label>
+                            <input type="text" class="form-control" formControlName="fullName">
                           </div>
                           <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Phone</label>
-                            <input type="number" class="form-control" id="exampleInputPassword1">
+                            <label class="form-label">Mobile</label>
+                            <input type="text" class="form-control" formControlName="mobile">
                           </div>
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email </label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <label  class="form-label">Email </label>
+                          <input type="text" class="form-control" formControlName="email" >
                           
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1">
+                          <label  class="form-label">Password</label>
+                          <input type="password" class="form-control" formControlName="password">
                         </div>
                         
                         <!-- <button type="submit" class="btn btn-primary">Sign Up</button> -->
+                        <div class="d-flex justify-content-between">
+                          <button   type="submit" class="btn btn-primary">Sign Up</button>
+                          <a class="link " routerLink="/login"> Already Registered?Go To Login</a>
+                      </div>
                       </form>
-                      <div class="d-flex justify-content-between">
-                        <button   type="submit" class="btn btn-primary">Sign Up</button>
-                        <a class="link " routerLink="/login"> Already Registered?Go To Login</a>
-                    </div>
+                      
                 </form>
             </div>
         </div>

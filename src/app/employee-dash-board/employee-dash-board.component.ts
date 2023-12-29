@@ -43,6 +43,7 @@ export class EmployeeDashBoardComponent implements OnInit {
     this.employeeModelObj.mobile=this.formValue.value.mobile;
     this.employeeModelObj.email=this.formValue.value.email;
     this.employeeModelObj.salary=this.formValue.value.salary;
+    console.log(this.employeeModelObj);
 
     this.employeeApiService.postEmployee(this.employeeModelObj)
     .subscribe(res=>{

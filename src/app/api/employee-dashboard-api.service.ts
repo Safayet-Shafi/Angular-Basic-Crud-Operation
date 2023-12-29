@@ -36,6 +36,14 @@ export class EmployeeDashboardApiService {
       return res;
     }))
   }
+
+
+  postSignUp(data:any){
+    return this.http.post<any>("http://localhost:3000/signupUsers",data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
   // async getEmployee(): Promise<any> {
     
   //     const response = await this.http.get('http://localhost:3000/posts').toPromise();
