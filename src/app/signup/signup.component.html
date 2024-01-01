@@ -11,24 +11,27 @@
                         <div class="mb-3">
                             <label  class="form-label">Full Name</label>
                             <input type="text" class="form-control" formControlName="fullName">
+                            <span class="text-danger" *ngIf="signupValue.controls['fullName'].dirty && signupValue.hasError('required','fullName')"> Full Name is Required</span>
                           </div>
                           <div class="mb-3">
                             <label class="form-label">Mobile</label>
                             <input type="text" class="form-control" formControlName="mobile">
+                            <span class="text-danger" *ngIf="signupValue.controls['mobile'].dirty && signupValue.hasError('required','mobile')"> Mobile Numberis Required</span>
                           </div>
                         <div class="mb-3">
                           <label  class="form-label">Email </label>
                           <input type="text" class="form-control" formControlName="email" >
-                          
+                          <span class="text-danger" *ngIf="signupValue.controls['email'].dirty && signupValue.hasError('required','email')"> Email is Required</span>
                         </div>
                         <div class="mb-3">
                           <label  class="form-label">Password</label>
                           <input type="password" class="form-control" formControlName="password">
+                          <span class="text-danger" *ngIf="signupValue.controls['password'].dirty && signupValue.hasError('required','password')"> Password is Required</span>
                         </div>
                         
                         <!-- <button type="submit" class="btn btn-primary">Sign Up</button> -->
                         <div class="d-flex justify-content-between">
-                          <button   type="submit" class="btn btn-primary">Sign Up</button>
+                          <button  [disabled]="!signupValue.valid" type="submit" class="btn btn-primary">Sign Up</button>
                           <a class="link " routerLink="/login"> Already Registered?Go To Login</a>
                       </div>
                       </form>
